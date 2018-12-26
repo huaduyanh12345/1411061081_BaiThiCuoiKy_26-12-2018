@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta  charset=utf8/>
+        <title>
+            Change the content of cell
+        </title>
+        <style type="text/css">
+            body{
+                margin:30px;
+            }
+            table{
+                background-color:783C3C;
+                margin:30px;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="myTable" border="1"></table>
+        <form>
+            <input type="button" onclick="generate_table()" value="Create the table" />
+        </form>
+        <div id=result onload=createTable()></div>
+        <script>
+            function generate_table() {
+               
+                var body = document.getElementsByTagName("body")[0];
+
+              
+                var tbl = document.createElement("table");
+                var tblBody = document.createElement("tbody");
+
+                // creating all cells
+                for (var i = 1; i < 5; i++) {
+                    // creates a table row
+                    var row = document.createElement("tr");
+
+                    for (var j = 1; j < 10; j++) {
+                    
+                        var cell = document.createElement("td");
+                        var cellText = document.createTextNode("dòng " + i + ", cột " + j);
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                    }
+
+                 
+                    tblBody.appendChild(row);
+                }
+
+              
+                tbl.appendChild(tblBody);
+           
+                body.appendChild(tbl);
+           
+                tbl.setAttribute("border", "3");
+            }
+        </script>
+    </body>
+</html>
